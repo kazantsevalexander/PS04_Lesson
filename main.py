@@ -15,13 +15,15 @@ def find_paragraphs():
 
         if sel == '2':
             links = []
-            for element in browser.find_elements(By.TAG_NAME, "a"):
+            body_content = browser.find_element(By.TAG_NAME, "p")
+            for element in body_content.find_elements(By.TAG_NAME, "a"):
                 link = element.get_attribute("href")
                 links.append(link)
             browser.get(random.choice(links))
 
         if sel == '3':
-            exit()
+            browser.quit()
+            break
 
 text_find = input('Введите поисковой запрос: ')
 
